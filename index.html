@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Programação - Estácio</title>
+    <title>Quiz de programação - Estácio</title>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -36,24 +36,43 @@
         }
         .opcao:hover { background: #3d3d3d; border-color: #007acc; }
         #feedback { text-align: center; font-weight: bold; margin-top: 15px; height: 20px; }
+        #start-button {
+            width: 100%;
+            padding: 14px 16px;
+            background: #007acc;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        #start-button:hover {
+            background: #005ea3;
+        }
     </style>
 </head>
 <body>
 
-    <div class="quiz-container">
-        <h1>Quiz de Python</h1>
-        <hr style="border: 0.5px solid #333; margin-bottom: 20px;">
-        
-        <div id="enunciado" class="pergunta">Carregando pergunta...</div>
-        
-        <div id="opcoes-container">
-            </div>
+  <div class="quiz-container">
+        <div id="start-screen">
+            <h1>Quiz de Programação</h1>
+            <p style="text-align:center; color:#bbb; margin: 15px 0 20px;">Teste seus conhecimentos em Python e veja quantas questões você acerta.</p>
+            <button id="start-button">Iniciar Quiz</button>
+        </div>
 
-        <div id="feedback"></div>
+        <div id="quiz-content" style="display: none;">
+            <h1>Quiz de programação</h1>
+            <p style="text-align:center; color:#bbb; margin-top:-10px; margin-bottom:20px;">Responda e descubra quantas questões você acerta.</p>
+            <hr style="border: 0.5px solid #333; margin-bottom: 20px;">
+
+            <div id="enunciado" class="pergunta">Carregando pergunta...</div>
+            <div id="opcoes-container"></div>
+            <div id="feedback"></div>
+        </div>
     </div>
 
     <script>
-        // 1. LISTA DE PERGUNTAS (Sua "Estrutura de Dados")
         const perguntas = [
             {
                 titulo: "Cite algumas razões para estudarmos Python.",
@@ -118,8 +137,8 @@
         ];
 
         let indiceAtual = 0;
+        let pontos = 0;
 
-        // 2. FUNÇÃO PARA CARREGAR A PERGUNTA NA TELA
         function carregarPergunta() {
             const questao = perguntas[indiceAtual];
             document.getElementById('enunciado').innerText = questao.titulo;
@@ -132,18 +151,18 @@
                 const div = document.createElement('div');
                 div.classList.add('opcao');
                 div.innerText = texto;
-                div.onclick = () => verificarResposta(index);
+                div.onclick = () => verificarResposta(index, questao.correta);
                 container.appendChild(div);
             });
         }
 
-        // 3. FUNÇÃO PARA VERIFICAR SE ACERTOU
-        function verificarResposta(escolhida) {
+            function verificarResposta(escolhida, correta) {
             const questao = perguntas[indiceAtual];
             const feedback = document.getElementById('feedback');
             const letras = ["A", "B", "C", "D"];
 
-            if (escolhida === questao.correta) {
+            if (escolhida === correta) {
+                pontos += 1;
                 feedback.innerText = "Correto! ✅";
                 feedback.style.color = "#4caf50";
             } else {
@@ -161,13 +180,18 @@
                 if (indiceAtual < perguntas.length) {
                     carregarPergunta();
                 } else {
-                    document.querySelector('.quiz-container').innerHTML = "<h1>Fim do Quiz! 🏆</h1><p style='text-align:center'>Você completou todos os temas.</p>";
+                    document.querySelector('.quiz-container').innerHTML = "<h1>Fim do Quiz,você acertou " + pontos + " de " + perguntas.length + "! 🏆</h1><p style='text-align:center'>Você completou todos os temas.</p>";
                 }
             }, 1500);
         }
 
-        // Iniciar o quiz
-        carregarPergunta();
+        function iniciar() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
+            carregarPergunta();
+        }
+
+        document.getElementById('start-button').onclick = iniciar;
     </script>
 </body>
 </html>
