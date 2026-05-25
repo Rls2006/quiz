@@ -73,65 +73,66 @@
     </div>
 
     <script>
+        // 1. LISTA DE PERGUNTAS (Sua "Estrutura de Dados")
         const perguntas = [
             {
-                titulo: "Cite algumas razões para estudarmos Python.",
-                opcoes: ["A) Sintaxe simples", "B) Suporte IA", "C) Memória manual", "D) Versatilidade Web e Automação"],
+                titulo: "Qual é a principal vantagem de estudarmos Python?",
+                opcoes: ["A) Sintaxe simples", "B) Suporte IA", "C) Memória manual", "D) Versatilidade Web e Automação", "E) Portabilidade entre plataformas."],
                 correta: 2 // Letra C
             },
             {
                 titulo: "Qual comando usamos para ler um dado do teclado?",
-                opcoes: ["A) input()", "B) print()", "C) read()", "D) scan()"],
+                opcoes: ["A) input()", "B) print()", "C) read()", "D) scan()", "E) get()"],
                 correta: 0 // Letra A
             },  
             {
-                titulo: "Qual das alternativas abaixo NÃO é uma razão comum para estudarmos Python?",
-                opcoes: ["A) Sintaxe simples e legível.", "B) Grande suporte para IA e Dados.", "C) Gerenciamento manual de memória.", "D) Versatilidade para Web e Automação."],
-                correta: 2 // Letra C
+                titulo: "Qual símbolo é usado para iniciar um comentário em Python?",
+                opcoes: ["A) //", "B) #", "C) --", "D) /**/", "E) //"],
+                correta: 1 // Letra B
             },
             {
                 titulo: "Em Python, qual é o método construtor de uma classe?",
-                opcoes: ["A) __start__", "B) __init__", "C) self", "D) main"],
+                opcoes: ["A) __start__", "B) __init__", "C) self", "D) main", "E) __construct__"],
                 correta: 1 // Letra B
             },
             {
                 titulo: "Qual estrutura é usada para iterar sobre uma lista em Python?",
-                opcoes: ["A) for", "B) if", "C) def", "D) import"],
+                opcoes: ["A) for", "B) if", "C) def", "D) import", "E) while"],
                 correta: 0 // Letra A
             },
             {
                 titulo: "Qual é a função usada para imprimir algo na tela em Python?",
-                opcoes: ["A) print()", "B) input()", "C) echo()", "D) display()"],
+                opcoes: ["A) print()", "B) input()", "C) echo()", "D) display()", "E) show()"],
                 correta: 0 // Letra A
             },
             {
                 titulo: "Como você pode determinar o tipo de uma variável em Python?",
-                opcoes: ["A) type()", "B) Len()", "C) str", "D) var()"],
+                opcoes: ["A) type()", "B) Len()", "C) str", "D) var()", "E) struct()"],
                 correta: 0 // Letra A
             },
             {
                 titulo: "Quais dessas opções pode ser considerada uma variável em Python?",
-                opcoes: ["A) 5", "B) 'olá'", "C) True", "D) None"],
+                opcoes: ["A) 5", "B) 'olá'", "C) True", "D) None", "E) 20"],
                 correta: 0 // Letra A
             },
              {
                 titulo: "Qual a sintaxe correta para criar uma função em python?",
-                opcoes: ["A)function minha_funcao():", "B)def minha_funcao():", "C)create minha_funcao():", "D)funcao minha_funcao():"],
+                opcoes: ["A) function minha_funcao():", "B) def minha_funcao():", "C) create minha_funcao():", "D) funcao minha_funcao():", "E) def minha_funcao[]:"],
                 correta: 1 // Letra B
             },
             {
                 titulo: "Qual deles não é um tipo primitivo em python?",
-                opcoes: ["A) int", "B) str", "C) bool", "D) list"],
+                opcoes: ["A) int", "B) str", "C) bool", "D) list", "E) dict"],
                 correta: 3 // Letra D
             },
             {
                 titulo: "Como você cria uma variável com o valor 5 em python?",
-                opcoes: ["A) var x= 5", "B) x= 5", "C) let x= 5", "D) x:= 5"],
+                opcoes: ["A) var x= 5", "B) x= 5", "C) let x= 5", "D) x:= 5", "E) x == 5"],
                 correta: 1 // Letra B
             },
             {
                 titulo: "Como você cria uma variável com o valor flutuante 2.8 em python?",
-                opcoes: ["A) var x= 2.8", "B) x= 2.8", "C) Let x= 2.8", "D) x:= 2.8"],
+                opcoes: ["A) var x= 2.8", "B) x= 2.8", "C) Let x= 2.8", "D) x:= 2.8", "E) x == 2.8"],
                 correta: 1 // Letra B
             }
         ];
